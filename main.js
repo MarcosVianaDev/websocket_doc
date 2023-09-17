@@ -76,6 +76,7 @@ function getWebSocketServer() {
   if (window.location.host === "localhost:8000") {
     return "ws://localhost:8001/";
   } else {
+    console.log(window.location.host);
     return "wss://websocketdoc.marcosviana2.repl.co/";
   }
 }
@@ -89,7 +90,4 @@ window.addEventListener("DOMContentLoaded", () => {
   initGame(websocket);
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
-  window.addEventListener('resize',()=>{
-    console.log(window.getComputedStyle(document.body).width);
-  })
 });
