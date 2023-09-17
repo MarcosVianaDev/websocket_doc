@@ -72,7 +72,7 @@ function sendMoves(board, websocket) {
 }
 
 function getWebSocketServer() {
-  if (window.location.host === "MarcosVianaDev.github.io") {
+  if (window.location.host === "marcosvianadev.github.io") {
     return "wss://websocketdoc.marcosviana2.repl.co/";
   } else if (window.location.host === "localhost:8000") {
     return "ws://localhost:8001/";
