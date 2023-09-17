@@ -7,7 +7,10 @@ Desenvolvendo o jogo proposto na documentação: https://websockets.readthedocs.
     `pip install 'watchdog[watchmedo]'`
     > * `watchmedo auto-restart --pattern "*.py" --recursive --signal SIGTERM \`
     > * `python app.py`
-
+<!-- 
+watchmedo auto-restart --pattern "*.py" --recursive --signal SIGTERM \
+python app.py
+-->
 Crie e ative um ambiente virtual:
 > `python -m venv venv` \
 > `source venv/bin/activate`
