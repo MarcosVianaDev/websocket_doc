@@ -28,6 +28,7 @@ function receiveMoves(board, websocket) {
     switch (event.type) {
       case "init":
         // Create links for inviting the second player and spectators.
+        document.querySelector(".new").href = window.location.href;
         document.querySelector(".join").href = "?join=" + event.join;
         document.querySelector(".watch").href = "?watch=" + event.watch;
         break;
