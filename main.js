@@ -72,12 +72,11 @@ function sendMoves(board, websocket) {
 }
 
 function getWebSocketServer() {
-  if (window.location.host === "marcosvianadev.github.io") {
-    return "wss://websocketdoc.marcosviana2.repl.co/";
-  } else if (window.location.host === "localhost:8000") {
+  // (window.location.host === "marcosvianadev.github.io") {
+  if (window.location.host === "localhost:8000") {
     return "ws://localhost:8001/";
   } else {
-    throw new Error(`Unsupported host: ${window.location.host}`);
+    return "wss://websocketdoc.marcosviana2.repl.co/";
   }
 }
 
