@@ -11,3 +11,4 @@ Desenvolvendo o jogo proposto na documentação: https://websockets.readthedocs.
 Crie e ative um ambiente virtual:
 > `python -m venv venv` \
 > `source venv/bin/activate`
+
