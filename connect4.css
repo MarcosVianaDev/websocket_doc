@@ -16,13 +16,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: flex-end;
-  width: 720px;
+  align-items: center;
+  width: 100%;
+  max-width: 720px;
   height: 100px;
 }
 
 .action {
-  color: darkgray;
+  color: black;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 20px;
   line-height: 20px;
@@ -32,12 +33,36 @@ body {
   text-transform: uppercase;
   padding: 20px;
   width: 120px;
+
+  border: 2px solid black;
+  border-radius: 16px;
+  transition: background-color, transform .25s;
+}
+
+.new {
+  background-color: red;
+}
+.new:hover {
+  background-color: rgb(255, 100, 100);
+  border-color: red;
+}
+.join {
+  background-color: yellow;
+}
+.join:hover {
+  background-color: rgb(255, 255, 100);
+  border-color: yellow;
+}
+.watch {
+  background-color: gray;
+}
+.watch:hover {
+  background-color: darkgray;
 }
 
 .action:hover {
-  background-color: darkgray;
-  color: white;
   font-weight: 700;
+  transform: scale(1.2);
 }
 
 .action[href=""] {
@@ -54,7 +79,7 @@ body {
   position: relative;
 }
 
-.board::before,
+/* .board::before,
 .board::after {
   background-color: blue;
   content: "";
@@ -69,7 +94,7 @@ body {
 
 .board::after {
   right: -20px;
-}
+} */
 
 .column {
   display: flex;
@@ -102,4 +127,8 @@ body {
 
 .yellow {
   background-color: yellow;
+}
+
+@media (max-width: 640px) {
+
 }

@@ -76,8 +76,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const board = document.querySelector(".board");
   createBoard(board);
   // Open the WebSocket connection and register event handlers.
-  const websocket = new WebSocket("ws://localhost:8001/");
+  const websocket = new WebSocket("ws://192.168.1.32:8001/");
   initGame(websocket);
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
+  window.addEventListener('resize',()=>{
+    console.log(window.getComputedStyle(document.body).width);
+  })
 });
