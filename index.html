@@ -5,11 +5,18 @@
   </head>
   <body>
     <div class="actions">
+      <a class="action join qrcode" href="" target="_blank">
+        <span>Entrar</span>
+        <div id="qrJoin"></div>
+      </a>
       <a class="action new" href="">Novo</a>
-      <a class="action join" href="">Entrar</a>
-      <a class="action watch" href="">Assistir</a>
+      <a class="action watch qrcode" href="" target="_blank">
+        <span>Assistir</span>
+        <div id="qrWatch"></div>
+      </a>
     </div>
     <div class="board"></div>
+    <script src="qrcode.min.js"></script>
     <script src="main.js" type="module"></script>
   </body>
 </html>

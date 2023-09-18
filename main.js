@@ -1,5 +1,8 @@
 import { createBoard, playMove } from "./connect4.js";
 
+var urlJoin, urlWatch;
+
+
 function initGame(websocket) {
   websocket.addEventListener("open", () => {
     // Send an "init" event according to who is connecting.
@@ -30,7 +33,25 @@ function receiveMoves(board, websocket) {
         // Create links for inviting the second player and spectators.
         document.querySelector(".new").href = window.location.href;
         document.querySelector(".join").href = "?join=" + event.join;
+        urlJoin = window.location.href + "?join=" + event.join;
         document.querySelector(".watch").href = "?watch=" + event.watch;
+        urlWatch = window.location.href + "?watch=" + event.watch;
+
+        //QR Code
+        var qrJoin = new QRCode(document.getElementById("qrJoin"), {
+          width: 200,
+          height: 200
+        });
+        var qrWatch = new QRCode(document.getElementById("qrWatch"), {
+            width: 200,
+            height: 200
+        });
+        function makeCode() {
+          console.log(urlJoin, urlWatch);
+          qrJoin.makeCode(urlJoin);
+          qrWatch.makeCode(urlWatch)
+        }
+        makeCode();
         break;
       case "play":
         // Update the UI with the move.
@@ -91,4 +112,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initGame(websocket);
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
+
 });

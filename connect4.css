@@ -19,7 +19,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 720px;
-  height: 100px;
+  height: 250px;
 }
 
 .action {
@@ -32,11 +32,15 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   padding: 20px;
-  width: 120px;
+  width: 100px;
 
   border: 2px solid black;
   border-radius: 16px;
   transition: background-color, transform .25s;
+}
+
+.qrcode {
+  width: 200px;
 }
 
 .new {
@@ -63,6 +67,7 @@ body {
 .action:hover {
   font-weight: 700;
   transform: scale(1.2);
+  z-index: 1;
 }
 
 .action[href=""] {
@@ -127,6 +132,18 @@ body {
 
 .yellow {
   background-color: yellow;
+}
+#qrCodes{
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#qrJoin,
+#qrWatch {
+  max-width: 200px;
+  border: 1px solid black;
 }
 
 @media (max-width: 640px) {

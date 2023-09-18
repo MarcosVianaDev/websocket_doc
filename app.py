@@ -94,12 +94,10 @@ async def start(websocket):
     game = Connect4()
     connected = {websocket}
 
-    # join_key = secrets.token_urlsafe(12)
-    join_key = 'marcos-server'
+    join_key = secrets.token_urlsafe(12)
     JOIN[join_key] = game, connected
 
-    # watch_key = secrets.token_urlsafe(12)
-    watch_key = 'marcos-spec'
+    watch_key = secrets.token_urlsafe(12)
     WATCH[watch_key] = game, connected
 
     try:
@@ -185,9 +183,6 @@ async def handler(websocket):
         await start(websocket)
 
 
-# async def main():
-#     async with websockets.serve(handler, "", 8001):
-#         await asyncio.Future()  # run forever
 async def main():
     # Set the stop condition when receiving SIGTERM.
     loop = asyncio.get_running_loop()
