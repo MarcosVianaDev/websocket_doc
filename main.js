@@ -39,12 +39,12 @@ function receiveMoves(board, websocket) {
 
         //QR Code
         var qrJoin = new QRCode(document.getElementById("qrJoin"), {
-          width: 200,
-          height: 200
+          width: 150,
+          height: 150
         });
         var qrWatch = new QRCode(document.getElementById("qrWatch"), {
-            width: 200,
-            height: 200
+            width: 150,
+            height: 150
         });
         function makeCode() {
           console.log(urlJoin, urlWatch);

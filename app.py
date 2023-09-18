@@ -94,10 +94,10 @@ async def start(websocket):
     game = Connect4()
     connected = {websocket}
 
-    join_key = secrets.token_urlsafe(12)
+    join_key = secrets.token_urlsafe(2)
     JOIN[join_key] = game, connected
 
-    watch_key = secrets.token_urlsafe(12)
+    watch_key = secrets.token_urlsafe(2)
     WATCH[watch_key] = game, connected
 
     try:
