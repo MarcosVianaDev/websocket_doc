@@ -5,6 +5,7 @@ var urlJoin, urlWatch;
 
 function initGame(websocket) {
   websocket.addEventListener("open", () => {
+    document.getElementById('conn').style.display = 'none'
     // Send an "init" event according to who is connecting.
     const params = new URLSearchParams(window.location.search);
     let event = { type: "init" };
@@ -47,7 +48,7 @@ function receiveMoves(board, websocket) {
             height: 150
         });
         function makeCode() {
-          console.log(urlJoin, urlWatch);
+          console.log('URL to join the game: ' + urlJoin + '\nURL to watch the game: ' + urlWatch);
           qrJoin.makeCode(urlJoin);
           qrWatch.makeCode(urlWatch)
         }
@@ -103,14 +104,27 @@ function getWebSocketServer() {
   }
 }
 
+var cont = 0
+function wsConnect(board) {
+  cont++
+  var ws = new WebSocket(getWebSocketServer());
+  ws.addEventListener('error', ()=>{
+    if (cont < 10) {
+      setTimeout(wsConnect(board), 750)
+    } else {
+      console.log('timeout...');
+      showMessage('Não foi possível conectar ao servidor.\nRecarregue a página para tentar novamente.')
+    }
+  });
+  initGame(ws);
+  receiveMoves(board, ws);
+  sendMoves(board, ws);
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   // Initialize the UI.
   const board = document.querySelector(".board");
   createBoard(board);
   // Open the WebSocket connection and register event handlers.
-  const websocket = new WebSocket(getWebSocketServer());
-  initGame(websocket);
-  receiveMoves(board, websocket);
-  sendMoves(board, websocket);
-
+  wsConnect(board);
 });
