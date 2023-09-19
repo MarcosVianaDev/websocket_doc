@@ -1,4 +1,7 @@
 # websocket_doc
+
+Clique [aqui](https://marcosvianadev.github.io/websocket_doc/) para acessar o jogo!
+  
 Desenvolvendo o jogo proposto na documentação: https://websockets.readthedocs.io/en/stable/intro/tutorial1.html
 
 * Ligar Web Server (cliente): `python -m http.server`
